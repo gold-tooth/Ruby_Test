@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Blog
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags 
+    = csp_meta_tag 
+
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags 
+
+
+  body.container
+    div.row.mt-2
+      div.col
+        h1 My test application Blog: #{content_for(:page_title)}
+      div.col 
+        = content_for(:buttons)  
+
+    = content_for :breadcrumbs
+
+    div.row
+      div.col
+        = yield 

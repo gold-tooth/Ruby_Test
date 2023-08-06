@@ -1,0 +1,9 @@
+- content_for :breadcrumbs do 
+  nav aria-label="breadcrumb"
+    ol.breadcrumb
+      li.breadcrumb-item = link_to "Home", articles_path
+      li.breadcrumb-item.active aria-current="page"  New Article
+
+h1 New Article
+
+= render "form", article: @article

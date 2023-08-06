@@ -1,0 +1,19 @@
+- content_for :page_title, "Articles"
+
+- content_for :buttons do 
+  = link_to "New Article", new_article_path, class: "btn btn-primary"
+
+- content_for :breadcrumbs do 
+  div.row.mb-3
+    div.col
+      small.text-muted
+        Our blog has #{Article.public_count}  articles and counting!
+
+    div.col
+      nav aria-label="breadcrumb"
+        ol.breadcrumb
+          li.breadcrumb-item.active aria-current="page" Home 
+
+div.row
+  div.col
+    = render "list", articles: @articles

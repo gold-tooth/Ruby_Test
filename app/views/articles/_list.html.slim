@@ -1,0 +1,13 @@
+div.row
+  - articles.each do |article|
+    - unless article.archived? 
+    div.card.mb-3.col-2.me-5 style="width: 18rem;"
+      div.card-body
+        h5.card-title = article.title
+        p.card-text = truncate(article.body, length: 101)
+        li.list-inline-item
+          = link_to article.title, article  
+
+div.list-inline-item
+  = will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+
